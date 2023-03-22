@@ -4,8 +4,8 @@ import cv2
 # We are capturing video from our system camera i.e. 
 cap = cv2.VideoCapture(0)
 
+# Configuration Face Mesh.
 mp_face_mesh = mp.solutions.face_mesh
-
 with mp_face_mesh.FaceMesh(
     max_num_faces = 1,
     refine_landmarks = True,
@@ -13,7 +13,7 @@ with mp_face_mesh.FaceMesh(
 ) as face_mesh:
     
     while cap.isOpened():
-        success, image = cap.read()
+        success, image = cap.read() # read 30 images per second
         
         results = face_mesh.process(image)
 
@@ -23,12 +23,9 @@ with mp_face_mesh.FaceMesh(
         if not success:
             break
         cv2.imshow("My video capture", image)
-
-        if cv2.waitKey(100)& 0xFF == ord('q'):
+        #press "q" for 100 ms
+        if cv2.waitKey(100) == ord('q'):
             break
 
-cap.release()
+cap.release() # release camera
 cv2.destroyAllWindows()
-
-
-
