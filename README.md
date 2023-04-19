@@ -18,10 +18,4 @@ This is a single csv file and contains information about ~ 32300 images.
 The model achieved a maximum accuracy of ~ 62%.  
 You can find the model along with the pre-processing steps in the file `Emotion_Detection_Model.ipynb`
 
-## Usage
 
-`python Detector_In_Action.py`
-
-This will start the webcam and feed the frames obtained through our trained model for inference.  
-Haarcascade is used to detect the faces in the frames and the detected region is cropped to the  
-desired size and fed to the detector as input.
